@@ -1,0 +1,14 @@
+identifier = "rds-prod-db"
+engine = "postgres"
+engine_version = 15
+instance_class = "db.t3.micro"
+storage_type = "gp2"
+allocated_storage = 10
+db_name = "postgres"
+username = "postgres"
+backup_retention_period = 1
+backup_window = "02:00-03:00"
+maintenance_window = "sun:03:00-sun:04:00"
+apply_immediately = true
+vpc_cidr = "10.0.0.0/16"
+vpc_name = "prod-vpc"
