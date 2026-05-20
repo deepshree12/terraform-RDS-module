@@ -96,3 +96,10 @@ type = string
 description = "instance_class"
 
 }
+
+variable "minor_version_upgrade" {
+
+  type = bool
+  description = "minor version upgrade"
+
+}

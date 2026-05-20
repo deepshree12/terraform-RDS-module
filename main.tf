@@ -100,7 +100,7 @@ db_subnet_group = aws_db_subnet_group.rds_subnet.name
 //custom_parameter_group = aws_db_parameter_group.rds_parameter_group.name
 custom_parameter_group = aws_db_parameter_group.rds_parameter_grouop.name
 apply_immediately = var.apply_immediately
-
+minor_version_upgrade = var.minor_version_upgrade
 }
 
 module "vpc" {

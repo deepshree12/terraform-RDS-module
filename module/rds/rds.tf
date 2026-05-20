@@ -17,5 +17,6 @@ vpc_security_group_ids = var.db_security_group
 parameter_group_name = var.custom_parameter_group
 db_subnet_group_name = var.db_subnet_group
 skip_final_snapshot = true
+auto_minor_version_upgrade = var.minor_version_upgrade
 
 }
