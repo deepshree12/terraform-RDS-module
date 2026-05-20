@@ -89,3 +89,10 @@ type = string
 description = "vpc name"
 
 }
+
+variable "minor_version_upgrade" {
+
+  type = bool
+  description = "allo minor version upgrade"
+
+}
