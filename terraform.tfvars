@@ -1,6 +1,6 @@
 identifier = "rds-prod-db"
 engine = "postgres"
-engine_version = 15.18
+engine_version = "18.4"
 instance_class = "db.t3.micro"
 storage_type = "gp2"
 allocated_storage = 10
@@ -13,3 +13,4 @@ apply_immediately = true
 vpc_cidr = "10.0.0.0/16"
 vpc_name = "prod-vpc"
 minor_version_upgrade = true
+major_version_upgrade = true

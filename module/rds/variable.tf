@@ -11,7 +11,7 @@ description = "name of the engine"
 }
 
 variable "engine_version" {
-type = number
+type = string
 description = "engine version"
 
 }
@@ -101,5 +101,12 @@ variable "minor_version_upgrade" {
 
   type = bool
   description = "minor version upgrade"
+
+}
+
+variable "major_version_upgrade" {
+ 
+  type = bool
+  description = "perform major version upgrade"
 
 }

@@ -18,5 +18,5 @@ parameter_group_name = var.custom_parameter_group
 db_subnet_group_name = var.db_subnet_group
 skip_final_snapshot = true
 auto_minor_version_upgrade = var.minor_version_upgrade
-
+allow_major_version_upgrade = var.major_version_upgrade
 }

@@ -24,7 +24,7 @@ tags = {
 }
 
 resource "aws_db_subnet_group" "rds_subnet" {
-name = "rds-subnet-group"
+name = "rds-subnet-group1"
 description = "rds_subnte_group"
 subnet_ids = [
 
@@ -61,10 +61,17 @@ tags = {
 }
 }
 
+locals {
+
+ major_version_upgrade = split(".", var.engine_version)[0]
+
+}
+
+
 resource "aws_db_parameter_group" "rds_parameter_grouop" {
-name = "rds-parameter-group"
+name = "rds-parameter-group-${local.major_version_upgrade}"
 description = "parameter group for postgresql"
-family = "postgres15"
+family = "postgres${local.major_version_upgrade}"
 parameter {
 
  name = "log_min_duration_statement"
@@ -78,6 +85,15 @@ name = "max_connections"
 value = "150"
 apply_method = "pending-reboot"
 }
+
+
+lifecycle {
+
+  create_before_destroy = true
+
+}
+
+
 }
 
 module "database" {
@@ -101,6 +117,7 @@ db_subnet_group = aws_db_subnet_group.rds_subnet.name
 custom_parameter_group = aws_db_parameter_group.rds_parameter_grouop.name
 apply_immediately = var.apply_immediately
 minor_version_upgrade = var.minor_version_upgrade
+major_version_upgrade = var.major_version_upgrade
 }
 
 module "vpc" {
